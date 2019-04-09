@@ -47,7 +47,16 @@ jQuery(document).ready(function( $ ) {
 	
 	var slideIndex = 1;
 	var slider = [];
-	var nSlides = 2; // get that value independent
+	var nSlides = 2; // get that value independent (read screen situation) ?
+	
+	// check if the window has the size of a mobile device. If yes show only one slide
+	if( $(window).width() > 375 ) {
+		nSlides = 2;
+	}
+	else{
+		nSlides = 1;
+	}
+
 
 	// INITIALIZE
 	$( '.slider-container' ).each(function( index ) {
@@ -109,7 +118,8 @@ jQuery(document).ready(function( $ ) {
 		  currentSlideStart.removeClass( 'slide-active' );
 		}
 		else{
-	//      object.find( '.slide-entry' ).first().addClass( 'slide-active' );
+			
+	//      object.find( '.slide-entry' ).first().addClass( 'slide-active' ); // do the rotation ?
 		}
 	  }
 	  // PREV
@@ -119,7 +129,7 @@ jQuery(document).ready(function( $ ) {
 		  currentSlideEnd.removeClass( 'slide-active' );
 		}
 		else{
-	//      object.find( '.slide-entry' ).last().addClass( 'slide-active' );
+	//      object.find( '.slide-entry' ).last().addClass( 'slide-active' ); // do the rotation ?
 		}    
 	  }
 
@@ -148,8 +158,6 @@ jQuery(document).ready(function ( $ ) {
 	//BUTTON FUNCTIONALITY	
 	$( 'body' ).on( 'click', '#button-collapse', function(ele) {
 		
-		console.log('button clicked');
-		
 		ele.preventDefault();
 		
 		// announce the collapsed state in the .site-content class
@@ -168,7 +176,7 @@ jQuery(document).ready(function ( $ ) {
 // EVENT NOTE
 jQuery(document).ready(function ( $ ) {
 	
-	$( '.events' ).bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(e) { 
+	$( 'body' ).on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd' , '.events', function(e) { 
 		$(this).css( 'display', 'none' ); 
 	});
 	
