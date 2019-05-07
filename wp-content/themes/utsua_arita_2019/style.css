@@ -1206,7 +1206,9 @@ p,
 	margin-right: var(--site-margin);
 }
 
-.home .site-content{
+.home .site-content,
+.page-template-page-contact .site-content
+{
 	margin-top: unset;
 }
 
@@ -1252,6 +1254,7 @@ p,
 .slider-container{
 	margin-left: calc(var(--site-margin) * -1);
 	margin-right: calc(var(--site-margin) * -1);
+	overflow: hidden;
 	
 /*	background: lightblue;	*/
 }
@@ -1267,6 +1270,7 @@ p,
 	z-index: 3;
 	width: 100%;
 	line-height: 0px;
+	transform: scale( 1.01, 1.01 );
 }
 
 .slide-active{
