@@ -394,7 +394,8 @@ function ut_display_home_posts( $query ) {
   if ( !is_admin() && $query->is_main_query() ) {
 	  
     if ( $query->is_home() ) {
-      $query->set( 'post_type', array( 'collection', 'events' ) );
+//		$query->set( 'post_type', array( 'collection', 'events' ) );
+		$query->set( 'post_type', array( 'collection' ) );
     }
   }
 	
